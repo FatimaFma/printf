@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdio.h>
+
 /**
 * struct convert - defines a structure for symbols and functions
 * @op: The operator
