@@ -10,7 +10,7 @@
 
 int _write_char(char c)
 {
-	return (_putchar('0' + c));
+	return (_putchar(c));
 }
 
 /**
