@@ -1,5 +1,5 @@
 #include "main.h"
-#include<stdarg.h>
+#include <stdarg.h>
 
 /**
  *_printf - function that produces output according to a format
@@ -9,46 +9,19 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i;
-	char *s;
-	char c;
-	va_list arg;
-	unsigned int count = 0;
+	int printed_chars;
+	conver_t f_list[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{NULL, NULL}
+	};
+	va_list arg_list;
 
-	va_start(arg, format);
-
-	while (*format)
-	{
-		while (*format != '%')
-		{
-			putchar(*format);
-			format++;
-			count++;
-		}
-		format++;
-		switch (*format)
-		{
-			case 'c':
-				i = va_arg(arg, int);
-				putchar(i);
-				count++;
-				break;
-			case 's':
-				s = va_arg(arg, char *);
-				while (*s != '\0')
-				{
-					putchar(*s);
-					s++;
-					count++;
-				}
-				break;
-			case '%':
-				putchar(37);
-				count++;
-				break;
-		}
-		format++;
-	}
-	va_end(arg);
-	return (count);
+	if (format == NULL)
+		return (-1);
+	va_start(arg_list, format);
+	printed_chars = parser(format, f_list, arg_list);
+	va_end(arg_list);
+	return (printed_chars);
 }
