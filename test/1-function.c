@@ -17,7 +17,7 @@ int print_number(va_list args)
 	n = va_arg(args, int);
 	if (n < 0)
 	{
-		length += _putchar('-');
+		length += _write_char('-');
 		num = n * -1;
 	}
 	else
@@ -26,7 +26,7 @@ int print_number(va_list args)
 		d *= 10;
 	for (; d != 0; )
 	{
-		length += _putchar('0' + num / d);
+		length += _write_char('0' + num / d);
 		num %= d;
 		d /= 10;
 	}
