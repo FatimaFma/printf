@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdio.h>
+
 /**
 * struct convert - defines a structure for symbols and functions
 * @op: The operator
@@ -24,13 +24,7 @@ int print_char(va_list);
 int print_string(va_list);
 int print_percent(va_list);
 int  _putchar(char c);
-int print_integer(va_list list);
-int print_number(va_list args);
-int print_binary(va_list);
-
-/*helper functions*/
-unsigned int base_len(unsigned int, int);
-char *rev_string(char *);
-void write_base(char *str);
+int print_integer(va_list);
+int print_number(va_list);
 
 #endif
