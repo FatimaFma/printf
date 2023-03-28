@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
 * print_number - prints a number
@@ -15,7 +16,7 @@ int print_number(va_list args)
 	int num = 0;
 	int count = 0;
 
-	num = va_arg(list, int);
+	num = va_arg(args, int);
 	if (num <= INT_MAX && num >= INT_MIN)
 	{
 		if (num < 0)

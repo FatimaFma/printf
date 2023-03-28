@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
 * print_number - prints a number
@@ -9,30 +10,45 @@
 
 int print_number(va_list args)
 {
-	int n;
-	int d = 1;
-	int length = 0;
-	unsigned int num;
+	unsigned int n;
+	int i = 0;
+	int j = 0;
+	int num = 0;
+	int count = 0;
 
-	n = va_arg(args, int);
-	if (n < 0)
+	num = va_arg(args, int);
+	if (num <= INT_MAX && num >= INT_MIN)
 	{
-		length += _write_char('-');
-		num = n * -1;
+		if (num < 0)
+		{
+			num *= -1;
+			_putchar('-');
+			count += 1;
+		}
+		n = num;
+		for (j = 0; (n / 10) > 0; j++)
+			n /= 10;
+
+		n = num;
+		while (j != 0)
+		{
+			for (i = 0; i < j; i++)
+				n /= 10;
+			n %= 10;
+			_putchar(n + '0');
+			count++;
+			j--;
+			n = num;
+		}
+		_putchar(n % 10 + '0');
+		count++;
 	}
 	else
-		num = n;
-	for (; num / d > 9; )
-		d *= 10;
-	for (; d != 0; )
 	{
-		length += _write_char('0' + num / d);
-		num %= d;
-		d /= 10;
+		return (-1);
 	}
-	return (length);
+	return (count);
 }
-
 /**
 * print_integer - Prints an integer
 * @list: list of arguments
