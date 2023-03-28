@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-
+#include <limits.h>
 /**
  * print_binary - Converts number from base 10 to binary
  * @list: List of arguments passed to this function
