@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
 /**
@@ -40,4 +41,3 @@ int print_binary(va_list list)
 	free(rev_str);
 	return (len);
 }
-

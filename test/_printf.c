@@ -4,7 +4,6 @@
 /**
  *_printf - function that produces output according to a format
  * @format: string containing the characters and the specifiers
- *
  * Return:  number of characters printed
  */
 int _printf(const char *format, ...)
@@ -16,6 +15,7 @@ int _printf(const char *format, ...)
 		{"%", print_percent},
 		{"d", print_integer},
 		{"i", print_integer},
+		{"b", print_binary},
 		{NULL, NULL}
 	};
 	va_list arg_list;
