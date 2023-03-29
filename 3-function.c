@@ -20,11 +20,17 @@ int print_octal(va_list list)
 		return (_write_char('0'));
 	if (num < 1)
 		return (-1);
+	len = base_len(num, 8);
+
+	octal_rep = malloc(sizeof(char) * len + 1);
+	if (octal_rep == NULL)
+		return (-1);
 	for (len = 0; num > 0; len++)
 	{
 		octal_rep[len] = (num % 8) + 48;
 		num = num / 8;
 	}
+	
 	octal_rep[len] = '\0';
 	rev_str = rev_string(octal_rep);
 	if (rev_str == NULL)
